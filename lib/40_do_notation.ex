@@ -34,9 +34,11 @@ defmodule DoNotation do
     #    {:safe_div, [], [{:a_val, [], DoNotation}, {:b_val, [], DoNotation}]}
     #  ]}
     quote do
-      a_val <- eval(a)
-      b_val <- eval(b)
-      safe_div(a_val, b_val)
+      DoNotation.bind do
+        a_val <- eval(a)
+        b_val <- eval(b)
+        safe_div(a_val, b_val)
+      end
     end
   end
 

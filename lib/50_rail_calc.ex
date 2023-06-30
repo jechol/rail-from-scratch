@@ -2,14 +2,15 @@ defmodule RailCalc do
   use Rail
   alias Expr.{Val, Div}
 
-  defp safe_div(_, 0), do: {:error, :div_by_zero}
-  defp safe_div(n, m), do: {:ok, n / m}
+  defp safe_div(_, 0) do
+  end
 
-  def eval(%Val{val: val}), do: {:ok, val}
+  defp safe_div(n, m) do
+  end
+
+  def eval(%Val{val: val}) do
+  end
 
   def eval(%Div{num: num, denom: denom}) do
-    num_val <- eval(num)
-    denom_val <- eval(denom)
-    safe_div(num_val, denom_val)
   end
 end
